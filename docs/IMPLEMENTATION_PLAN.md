@@ -33,12 +33,12 @@
   - [x] Implement `GET /api/health` with database check
   - [x] Verify `npm run dev` and `npm run build`
 
-- [ ] **Phase 3: Authentication and authorization**
-  - [ ] Implement bcrypt hashing (cost 12) & JWT utilities
-  - [ ] Implement `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me`
-  - [ ] Implement `requireAuth` and `requireRole` guards
-  - [ ] Apply stricter rate limiting on `/api/auth/*`
-  - [ ] Verify auth flows and error handling (401, 403, 409)
+- [x] **Phase 3: Authentication and authorization**
+  - [x] Implement bcrypt hashing (cost 12) & JWT utilities
+  - [x] Implement `POST /api/auth/register`, `POST /api/auth/login`, `GET /api/auth/me`
+  - [x] Implement `requireAuth` and `requireRole` guards
+  - [x] Apply stricter rate limiting on `/api/auth/*`
+  - [x] Verify auth flows and error handling (401, 403, 409)
 
 - [ ] **Phase 4: Teacher: quiz and question management**
   - [ ] Implement 6-character access code generator (no 0, O, 1, I) with collision retry
