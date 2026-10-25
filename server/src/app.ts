@@ -7,6 +7,8 @@ import { notFoundHandler, errorHandler } from './middleware/error';
 import healthRouter from './routes/health';
 import authRouter from './routes/auth';
 import teacherRouter from './routes/teacher';
+import quizzesRouter from './routes/quizzes';
+import questionsRouter from './routes/questions';
 
 const app = express();
 
@@ -63,6 +65,8 @@ app.use(globalRateLimiter);
 app.use('/api', healthRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/teacher', teacherRouter);
+app.use('/api/quizzes', quizzesRouter);
+app.use('/api/questions', questionsRouter);
 
 // 404 Handler
 app.use(notFoundHandler);

@@ -40,12 +40,12 @@
   - [x] Apply stricter rate limiting on `/api/auth/*`
   - [x] Verify auth flows and error handling (401, 403, 409)
 
-- [ ] **Phase 4: Teacher: quiz and question management**
-  - [ ] Implement 6-character access code generator (no 0, O, 1, I) with collision retry
-  - [ ] Implement quiz CRUD endpoints with ownership checks
-  - [ ] Implement question management endpoints (create, transaction update, delete, reorder)
-  - [ ] Implement publish validation (rule 7.2) and attempt locking (rule 7.3)
-  - [ ] Implement code regeneration and result release endpoints
+- [x] **Phase 4: Teacher: quiz and question management**
+  - [x] Implement 6-character access code generator (no 0, O, 1, I) with collision retry
+  - [x] Implement quiz CRUD endpoints with ownership checks
+  - [x] Implement question management endpoints (create, transaction update, delete, reorder)
+  - [x] Implement publish validation (rule 7.2) and attempt locking (rule 7.3)
+  - [x] Implement code regeneration and result release endpoints
 
 - [ ] **Phase 5: Student: join, attempt, autosave, submit, scoring**
   - [ ] Implement `POST /api/quizzes/join` (case-insensitive access code)
