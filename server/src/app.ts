@@ -5,6 +5,8 @@ import { env } from './config/env';
 import { globalRateLimiter } from './middleware/rateLimit';
 import { notFoundHandler, errorHandler } from './middleware/error';
 import healthRouter from './routes/health';
+import authRouter from './routes/auth';
+import teacherRouter from './routes/teacher';
 
 const app = express();
 
@@ -59,6 +61,8 @@ app.use(globalRateLimiter);
 
 // API Routes
 app.use('/api', healthRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/teacher', teacherRouter);
 
 // 404 Handler
 app.use(notFoundHandler);
