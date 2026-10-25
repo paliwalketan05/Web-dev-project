@@ -23,15 +23,15 @@
   - [x] Initial commit with Phase 0 and Phase 1 files
   - [x] Configure GitHub remote (`https://github.com/paliwalketan05/Web-dev-project.git`) and push `main`
 
-- [ ] **Phase 2: Backend foundation and database**
-  - [ ] Initialize `server/` with TypeScript (strict), Express, tsx, ESLint, Prettier
-  - [ ] Implement `src/config/env.ts` with Zod validation
-  - [ ] Configure Prisma schema with models (`User`, `Quiz`, `Question`, `Option`, `Attempt`, `Answer`)
-  - [ ] Add `docker-compose.yml` for PostgreSQL 16
-  - [ ] Setup `server/.env.example` and run migrations
-  - [ ] Add security and utility middleware (helmet, cors, rate limiter, request logger, error handler, 404 handler)
-  - [ ] Implement `GET /api/health` with database check
-  - [ ] Verify `npm run dev` and `npm run build`
+- [x] **Phase 2: Backend foundation and database**
+  - [x] Initialize `server/` with TypeScript (strict), Express, tsx, ESLint, Prettier
+  - [x] Implement `src/config/env.ts` with Zod validation
+  - [x] Configure Prisma schema with models (`User`, `Quiz`, `Question`, `Option`, `Attempt`, `Answer`)
+  - [x] Add `docker-compose.yml` for PostgreSQL 16
+  - [x] Setup `server/.env.example` and run migrations
+  - [x] Add security and utility middleware (helmet, cors, rate limiter, request logger, error handler, 404 handler)
+  - [x] Implement `GET /api/health` with database check
+  - [x] Verify `npm run dev` and `npm run build`
 
 - [ ] **Phase 3: Authentication and authorization**
   - [ ] Implement bcrypt hashing (cost 12) & JWT utilities
