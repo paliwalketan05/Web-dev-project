@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { Role } from '@prisma/client';
 import * as quizzesController from '../controllers/quizzes';
 import * as studentController from '../controllers/student';
+import * as analyticsController from '../controllers/analytics';
 import { requireAuth } from '../middleware/auth';
 import { requireRole } from '../middleware/role';
 import { validate } from '../middleware/validate';
@@ -17,6 +18,7 @@ import {
   reorderQuestionsSchema,
 } from '../schemas/question';
 import { joinQuizSchema } from '../schemas/attempt';
+import { attemptsQuerySchema } from '../schemas/analytics';
 
 const router = Router();
 
@@ -43,6 +45,17 @@ router.patch(
 );
 router.post('/:id/regenerate-code', requireRole(Role.TEACHER), quizzesController.regenerateCode);
 
+// Results & Analytics Endpoints for Teacher
+router.get(
+  '/:id/attempts',
+  requireRole(Role.TEACHER),
+  validate({ query: attemptsQuerySchema }),
+  analyticsController.getQuizAttempts,
+);
+router.get('/:id/analytics', requireRole(Role.TEACHER), analyticsController.getQuizAnalytics);
+router.get('/:id/export.csv', requireRole(Role.TEACHER), analyticsController.exportQuizResultsCsv);
+
+// Question Management Endpoints
 router.post(
   '/:id/questions',
   requireRole(Role.TEACHER),
