@@ -1,6 +1,9 @@
 import app from './app';
 import { env } from './config/env';
 import { prisma } from './utils/prisma';
+import { startExpireAttemptsJob } from './jobs/expireAttempts';
+
+let stopExpireJob: (() => void) | undefined;
 
 const server = app.listen(env.PORT, async () => {
   console.log(`🚀 QuizArena API listening on port ${env.PORT} in ${env.NODE_ENV} mode`);
@@ -12,10 +15,18 @@ const server = app.listen(env.PORT, async () => {
   } catch (error) {
     console.error('❌ Failed to connect to database on startup:', error);
   }
+
+  // Start background job to finalize expired attempts (every minute)
+  if (env.NODE_ENV !== 'test') {
+    stopExpireJob = startExpireAttemptsJob();
+  }
 });
 
 const gracefulShutdown = async (signal: string) => {
   console.log(`\nReceived ${signal}. Shutting down gracefully...`);
+  if (stopExpireJob) {
+    stopExpireJob();
+  }
   server.close(async () => {
     try {
       await prisma.$disconnect();

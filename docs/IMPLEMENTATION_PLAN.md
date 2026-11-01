@@ -47,16 +47,16 @@
   - [x] Implement publish validation (rule 7.2) and attempt locking (rule 7.3)
   - [x] Implement code regeneration and result release endpoints
 
-- [ ] **Phase 5: Student: join, attempt, autosave, submit, scoring**
-  - [ ] Implement `POST /api/quizzes/join` (case-insensitive access code)
-  - [ ] Implement attempt start/resume with window and max-attempt validation
-  - [ ] Implement deterministic seeded shuffling for questions and options
-  - [ ] Ensure correct answers are stripped from question delivery
-  - [ ] Implement pure scoring service in `services/scoring.ts`
-  - [ ] Implement autosave (`PUT /api/attempts/:id/answers`) with expiry handling
-  - [ ] Implement attempt submission (`POST /api/attempts/:id/submit`) and result retrieval
-  - [ ] Implement background attempt expiry job (`jobs/expireAttempts.ts`)
-  - [ ] Implement tab-switch tracking, student quizzes, and attempt history
+- [x] **Phase 5: Student: join, attempt, autosave, submit, scoring**
+  - [x] Implement `POST /api/quizzes/join` (case-insensitive access code)
+  - [x] Implement attempt start/resume with window and max-attempt validation
+  - [x] Implement deterministic seeded shuffling for questions and options
+  - [x] Ensure correct answers are stripped from question delivery
+  - [x] Implement pure scoring service in `services/scoring.ts`
+  - [x] Implement autosave (`PUT /api/attempts/:id/answers`) with expiry handling
+  - [x] Implement attempt submission (`POST /api/attempts/:id/submit`) and result retrieval
+  - [x] Implement background attempt expiry job (`jobs/expireAttempts.ts`)
+  - [x] Implement tab-switch tracking, student quizzes, and attempt history
 
 - [ ] **Phase 6: Results, analytics and export**
   - [ ] Implement teacher attempts view with pagination, search, and status filter

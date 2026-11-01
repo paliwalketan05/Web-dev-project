@@ -9,6 +9,8 @@ import authRouter from './routes/auth';
 import teacherRouter from './routes/teacher';
 import quizzesRouter from './routes/quizzes';
 import questionsRouter from './routes/questions';
+import studentRouter from './routes/student';
+import attemptsRouter from './routes/attempts';
 
 const app = express();
 
@@ -67,6 +69,8 @@ app.use('/api/auth', authRouter);
 app.use('/api/teacher', teacherRouter);
 app.use('/api/quizzes', quizzesRouter);
 app.use('/api/questions', questionsRouter);
+app.use('/api/student', studentRouter);
+app.use('/api/attempts', attemptsRouter);
 
 // 404 Handler
 app.use(notFoundHandler);

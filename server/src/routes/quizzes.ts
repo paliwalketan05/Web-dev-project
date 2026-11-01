@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Role } from '@prisma/client';
 import * as quizzesController from '../controllers/quizzes';
+import * as studentController from '../controllers/student';
 import { requireAuth } from '../middleware/auth';
 import { requireRole } from '../middleware/role';
 import { validate } from '../middleware/validate';
@@ -15,34 +16,42 @@ import {
   createQuestionSchema,
   reorderQuestionsSchema,
 } from '../schemas/question';
+import { joinQuizSchema } from '../schemas/attempt';
 
 const router = Router();
 
-// Protect all teacher quiz routes
+// All quiz routes require authentication
 router.use(requireAuth);
-router.use(requireRole(Role.TEACHER));
 
-router.post('/', validate({ body: createQuizSchema }), quizzesController.createQuiz);
-router.get('/', validate({ query: quizListQuerySchema }), quizzesController.listQuizzes);
-router.get('/:id', quizzesController.getQuizById);
-router.put('/:id', validate({ body: updateQuizSchema }), quizzesController.updateQuiz);
-router.delete('/:id', quizzesController.deleteQuiz);
+// Student Quiz Endpoints
+router.post('/join', requireRole(Role.STUDENT), validate({ body: joinQuizSchema }), studentController.joinQuiz);
+router.post('/:id/attempts', requireRole(Role.STUDENT), studentController.startAttempt);
 
-router.patch('/:id/publish', validate({ body: publishQuizSchema }), quizzesController.publishQuiz);
+// Teacher Quiz Endpoints
+router.post('/', requireRole(Role.TEACHER), validate({ body: createQuizSchema }), quizzesController.createQuiz);
+router.get('/', requireRole(Role.TEACHER), validate({ query: quizListQuerySchema }), quizzesController.listQuizzes);
+router.get('/:id', requireRole(Role.TEACHER), quizzesController.getQuizById);
+router.put('/:id', requireRole(Role.TEACHER), validate({ body: updateQuizSchema }), quizzesController.updateQuiz);
+router.delete('/:id', requireRole(Role.TEACHER), quizzesController.deleteQuiz);
+
+router.patch('/:id/publish', requireRole(Role.TEACHER), validate({ body: publishQuizSchema }), quizzesController.publishQuiz);
 router.patch(
   '/:id/release-results',
+  requireRole(Role.TEACHER),
   validate({ body: releaseResultsSchema }),
   quizzesController.releaseResults,
 );
-router.post('/:id/regenerate-code', quizzesController.regenerateCode);
+router.post('/:id/regenerate-code', requireRole(Role.TEACHER), quizzesController.regenerateCode);
 
 router.post(
   '/:id/questions',
+  requireRole(Role.TEACHER),
   validate({ body: createQuestionSchema }),
   quizzesController.addQuestionToQuiz,
 );
 router.put(
   '/:id/questions/reorder',
+  requireRole(Role.TEACHER),
   validate({ body: reorderQuestionsSchema }),
   quizzesController.reorderQuestions,
 );
