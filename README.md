@@ -10,7 +10,7 @@ Full-stack online quiz and assessment platform featuring dedicated interfaces fo
 - [x] Phase 3: Authentication and authorization
 - [x] Phase 4: Teacher quiz and question management
 - [x] Phase 5: Student test-taking engine, autosave, and scoring
-- [ ] Phase 6: Results, analytics, and CSV export
+- [x] Phase 6: Results, analytics, and CSV export
 - [ ] Phase 7: Backend unit and integration tests
 - [ ] Phase 8: Frontend foundation and UI kit
 - [ ] Phase 9: Teacher interface

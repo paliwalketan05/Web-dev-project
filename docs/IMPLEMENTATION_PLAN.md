@@ -58,11 +58,11 @@
   - [x] Implement background attempt expiry job (`jobs/expireAttempts.ts`)
   - [x] Implement tab-switch tracking, student quizzes, and attempt history
 
-- [ ] **Phase 6: Results, analytics and export**
-  - [ ] Implement teacher attempts view with pagination, search, and status filter
-  - [ ] Implement individual attempt review for teachers
-  - [ ] Implement quiz analytics (averages, pass rate, 10-bucket score distribution, question accuracy)
-  - [ ] Implement CSV export (RFC 4180 escaped, UTF-8) and teacher stats endpoint
+- [x] **Phase 6: Results, analytics and export**
+  - [x] Implement teacher attempts view with pagination, search, and status filter
+  - [x] Implement individual attempt review for teachers
+  - [x] Implement quiz analytics (averages, pass rate, 10-bucket score distribution, question accuracy)
+  - [x] Implement CSV export (RFC 4180 escaped, UTF-8) and teacher stats endpoint
 
 - [ ] **Phase 7: Backend tests**
   - [ ] Set up Vitest with Supertest
