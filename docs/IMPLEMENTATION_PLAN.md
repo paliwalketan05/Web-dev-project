@@ -64,11 +64,11 @@
   - [x] Implement quiz analytics (averages, pass rate, 10-bucket score distribution, question accuracy)
   - [x] Implement CSV export (RFC 4180 escaped, UTF-8) and teacher stats endpoint
 
-- [ ] **Phase 7: Backend tests**
-  - [ ] Set up Vitest with Supertest
-  - [ ] Comprehensive scoring unit tests (all question types, negative marks, edge cases)
-  - [ ] API integration tests (auth, RBAC, ownership, quiz lifecycle, attempt lifecycle, expiry, results)
-  - [ ] Verify at least 30 passing backend tests
+- [x] **Phase 7: Backend tests**
+  - [x] Set up Vitest with Supertest
+  - [x] Comprehensive scoring unit tests (all question types, negative marks, edge cases)
+  - [x] API integration tests (auth, RBAC, ownership, quiz lifecycle, attempt lifecycle, expiry, results)
+  - [x] Verify at least 30 passing backend tests
 
 - [ ] **Phase 8: Frontend foundation**
   - [ ] Initialize `client/` with Vite, React, TypeScript (strict), Tailwind CSS
